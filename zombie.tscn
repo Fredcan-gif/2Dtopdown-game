@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://sadoa0ra88g6"]
+
+[ext_resource type="Script" uid="uid://bsqwkehusn88w" path="res://zombie.gd" id="1_7nqyo"]
+[ext_resource type="Texture2D" uid="uid://b86pdgvjwt2ls" path="res://assets/zombie.png" id="2_lnshm"]
+[ext_resource type="Texture2D" uid="uid://hqgnx81kie8t" path="res://assets/dead_body.png" id="3_x5rsa"]
+[ext_resource type="Texture2D" uid="uid://k7fvmj2cs3p8" path="res://assets/blood_splatter.png" id="4_ogcpr"]
+[ext_resource type="AudioStream" uid="uid://cmp77n8anoqda" path="res://assets/monster_die.wav" id="5_i82o5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jw3ev"]
+radius = 31.06445
+
+[node name="Zombie" type="CharacterBody2D" unique_id=657701144]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_7nqyo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=891738205]
+position = Vector2(0, -10.000001)
+scale = Vector2(1.2069926, 1.2069926)
+shape = SubResource("CircleShape2D_jw3ev")
+
+[node name="Graphics" type="Node2D" parent="." unique_id=1960473183]
+
+[node name="Alive" type="Sprite2D" parent="Graphics" unique_id=699218440]
+texture_filter = 1
+position = Vector2(6, -23)
+texture = ExtResource("2_lnshm")
+
+[node name="Dead" type="Sprite2D" parent="Graphics" unique_id=1824040299]
+visible = false
+z_index = -1
+texture_filter = 1
+texture = ExtResource("3_x5rsa")
+
+[node name="BloodSplatter" type="Sprite2D" parent="Graphics" unique_id=1679793328]
+visible = false
+self_modulate = Color(0.84313726, 0, 0, 1)
+show_behind_parent = true
+z_index = -1
+texture_filter = 1
+position = Vector2(15, 9)
+rotation = -0.481297
+scale = Vector2(1.0477393, 1.0477393)
+texture = ExtResource("4_ogcpr")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=140885339]
+target_position = Vector2(0, -70)
+collision_mask = 3
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=605235592]
+stream = ExtResource("5_i82o5")
+bus = &"sfx"

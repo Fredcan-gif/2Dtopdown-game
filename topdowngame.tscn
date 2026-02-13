@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://bf3xg5lg1fc33"]
+
+[ext_resource type="Texture2D" uid="uid://cvexu86v7qipn" path="res://assets/white_sq.png" id="1_48uqh"]
+[ext_resource type="PackedScene" uid="uid://bkdcxmyjc8vwi" path="res://player.tscn" id="2_2avt1"]
+[ext_resource type="PackedScene" uid="uid://cpxn47cas4c8p" path="res://spawner.tscn" id="4_d2fse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2avt1"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk2yv"]
+size = Vector2(64, 64)
+
+[node name="Node2D" type="Node2D" unique_id=1466612256]
+
+[node name="Environment" type="Node2D" parent="." unique_id=925789574]
+
+[node name="Floor" type="Sprite2D" parent="Environment" unique_id=1754646445]
+self_modulate = Color(0.5641601, 0.56416, 0.56416, 1)
+z_index = -2
+position = Vector2(577, 326.5)
+scale = Vector2(29.15625, 16.578125)
+texture = ExtResource("1_48uqh")
+
+[node name="Block" type="Sprite2D" parent="Environment" unique_id=996142187]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(179, 152)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block" unique_id=1433390910]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block/StaticBody2D" unique_id=1629124872]
+shape = SubResource("RectangleShape2D_2avt1")
+
+[node name="Block2" type="Sprite2D" parent="Environment" unique_id=1241210163]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(946, 285)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block2" unique_id=1946157529]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block2/StaticBody2D" unique_id=118909543]
+shape = SubResource("RectangleShape2D_2avt1")
+
+[node name="Block3" type="Sprite2D" parent="Environment" unique_id=1708104474]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(785, 439)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block3" unique_id=1342933319]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block3/StaticBody2D" unique_id=1452524378]
+shape = SubResource("RectangleShape2D_2avt1")
+
+[node name="Block4" type="Sprite2D" parent="Environment" unique_id=801104743]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(506, 145)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block4" unique_id=892136800]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block4/StaticBody2D" unique_id=1180745758]
+shape = SubResource("RectangleShape2D_2avt1")
+
+[node name="Block5" type="Sprite2D" parent="Environment" unique_id=2109750611]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(321, 372)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block5" unique_id=612893204]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block5/StaticBody2D" unique_id=59800256]
+shape = SubResource("RectangleShape2D_2avt1")
+
+[node name="Block6" type="Sprite2D" parent="Environment" unique_id=2065888984]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(808, 127)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block6" unique_id=139044772]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block6/StaticBody2D" unique_id=76925626]
+shape = SubResource("RectangleShape2D_2avt1")
+
+[node name="Block7" type="Sprite2D" parent="Environment" unique_id=165765741]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(506, 557)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block7" unique_id=1167006405]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block7/StaticBody2D" unique_id=986461226]
+shape = SubResource("RectangleShape2D_2avt1")
+
+[node name="Block8" type="Sprite2D" parent="Environment" unique_id=190932239]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(506, 557)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block8" unique_id=745225622]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block8/StaticBody2D" unique_id=1502681361]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Block9" type="Sprite2D" parent="Environment" unique_id=240032152]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(105, 634)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block9" unique_id=438047275]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block9/StaticBody2D" unique_id=1459446098]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Block10" type="Sprite2D" parent="Environment" unique_id=1824701186]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(649, 740)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block10" unique_id=161079370]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block10/StaticBody2D" unique_id=1834463938]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Block11" type="Sprite2D" parent="Environment" unique_id=987639483]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1281, 226)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block11" unique_id=1059168314]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block11/StaticBody2D" unique_id=179344097]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Block12" type="Sprite2D" parent="Environment" unique_id=815489823]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1250, 555)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block12" unique_id=288154067]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block12/StaticBody2D" unique_id=1816050482]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Block13" type="Sprite2D" parent="Environment" unique_id=172695469]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1055, -86)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block13" unique_id=151042668]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block13/StaticBody2D" unique_id=230881196]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Block14" type="Sprite2D" parent="Environment" unique_id=2049614011]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(379, -90)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block14" unique_id=585430956]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block14/StaticBody2D" unique_id=1401896879]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Block15" type="Sprite2D" parent="Environment" unique_id=368468501]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-203, -125)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block15" unique_id=699850544]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block15/StaticBody2D" unique_id=1916195006]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Block16" type="Sprite2D" parent="Environment" unique_id=1197153960]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-16, 37)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block16" unique_id=717956192]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block16/StaticBody2D" unique_id=878580163]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Block17" type="Sprite2D" parent="Environment" unique_id=215247195]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-43, 390)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block17" unique_id=1425321617]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block17/StaticBody2D" unique_id=221765509]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Block18" type="Sprite2D" parent="Environment" unique_id=1797346533]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-194, 700)
+texture = ExtResource("1_48uqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Block18" unique_id=489235529]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Block18/StaticBody2D" unique_id=1983276863]
+shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="Player" parent="." unique_id=1631144809 instance=ExtResource("2_2avt1")]
+position = Vector2(603, 332)
+
+[node name="EnemySpawner" parent="." unique_id=736624560 instance=ExtResource("4_d2fse")]
+position = Vector2(-2, 0)

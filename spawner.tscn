@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cpxn47cas4c8p"]
+
+[ext_resource type="Script" uid="uid://dqsukrq33ss4p" path="res://spawner.gd" id="1_yp5lu"]
+
+[node name="EnemySpawner" type="Node2D" unique_id=736624560]
+script = ExtResource("1_yp5lu")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=654156581]
+position = Vector2(341, 73)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=456516492]
+position = Vector2(138, 448)
+
+[node name="Marker2D3" type="Marker2D" parent="." unique_id=1920394603]
+position = Vector2(356, 589)
+
+[node name="Marker2D4" type="Marker2D" parent="." unique_id=1594576987]
+position = Vector2(1067, 94)
+
+[node name="Marker2D5" type="Marker2D" parent="." unique_id=297635857]
+position = Vector2(822, 591)
+
+[node name="Marker2D6" type="Marker2D" parent="." unique_id=765464164]
+position = Vector2(1054, 516)
+
+[node name="Marker2D7" type="Marker2D" parent="." unique_id=134453986]
+position = Vector2(1403, 369)
+
+[node name="Marker2D8" type="Marker2D" parent="." unique_id=1266449860]
+position = Vector2(1047, 808)
+
+[node name="Marker2D9" type="Marker2D" parent="." unique_id=2140619536]
+position = Vector2(-125, 186)
+
+[node name="Marker2D10" type="Marker2D" parent="." unique_id=423954588]
+position = Vector2(118, -57)
+rotation = -0.9596549
+
+[node name="Marker2D11" type="Marker2D" parent="." unique_id=826342453]
+position = Vector2(633, -129)
+rotation = -0.9596549
+
+[node name="Marker2D12" type="Marker2D" parent="." unique_id=114055415]
+position = Vector2(1240, -48)
+rotation = -0.9596549
+
+[node name="Marker2D13" type="Marker2D" parent="." unique_id=1932338783]
+position = Vector2(-171, 580.00006)
+rotation = -0.9596549
+
+[node name="Marker2D14" type="Marker2D" parent="." unique_id=910331712]
+position = Vector2(308, 831.00006)
+rotation = -0.9596549
+
+[node name="Timer" type="Timer" parent="." unique_id=625368722]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
