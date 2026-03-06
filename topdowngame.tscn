@@ -3,12 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://cvexu86v7qipn" path="res://assets/white_sq.png" id="1_48uqh"]
 [ext_resource type="PackedScene" uid="uid://bkdcxmyjc8vwi" path="res://player.tscn" id="2_2avt1"]
 [ext_resource type="PackedScene" uid="uid://cpxn47cas4c8p" path="res://spawner.tscn" id="4_d2fse"]
+[ext_resource type="Script" uid="uid://c2ybt2oundw2v" path="res://hud.gd" id="5_ljg8q"]
+[ext_resource type="Texture2D" uid="uid://ceom0wqlgf782" path="res://assets/Health Bar Asset Pack 2/greenbar (3).png" id="5_ryesc"]
+[ext_resource type="Texture2D" uid="uid://duip7qbpi723n" path="res://assets/Health Bar Asset Pack 2/greenbar (1).png" id="6_72afg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2avt1"]
 size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk2yv"]
 size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnk1w"]
+atlas = ExtResource("5_ryesc")
+region = Rect2(10, 52, 108, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbnto"]
+atlas = ExtResource("6_72afg")
+region = Rect2(10, 22, 108, 10)
 
 [node name="Node2D" type="Node2D" unique_id=1466612256]
 
@@ -208,3 +219,31 @@ texture = ExtResource("1_48uqh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block18/StaticBody2D" unique_id=1773181722]
 shape = SubResource("RectangleShape2D_kk2yv")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1687090063 groups=["hud"]]
+script = ExtResource("5_ljg8q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD" unique_id=631593359]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="WaveLabel" type="Label" parent="HUD/VBoxContainer" unique_id=1812373991]
+layout_mode = 2
+
+[node name="CountLabel" type="Label" parent="HUD/VBoxContainer" unique_id=1439163524]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD" unique_id=1475529551 groups=["player_hud"]]
+texture_filter = 1
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 339.80002
+offset_bottom = 34.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_nnk1w")
+texture_progress = SubResource("AtlasTexture_mbnto")
