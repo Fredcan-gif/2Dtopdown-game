@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://b2d8oiemj1su4"]
+
+[ext_resource type="Script" uid="uid://uub8fk57f5ed" path="res://main_menu.gd" id="1_7vrkn"]
+
+[sub_resource type="Gradient" id="Gradient_7vrkn"]
+offsets = PackedFloat32Array(0, 0.8629808, 0.99759614)
+colors = PackedColorArray(1, 1, 1, 1, 0.2760652, 0.27606523, 0.27606523, 1, 0.13464907, 0.1346491, 0.13464904, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fu7sn"]
+gradient = SubResource("Gradient_7vrkn")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_jix8l"]
+font_size = 13
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.4627451)
+
+[node name="Main Menu" type="Node2D" unique_id=1483382934]
+script = ExtResource("1_7vrkn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=413488731]
+autoplay = true
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1071314777]
+position = Vector2(576.6737, 331.99997)
+scale = Vector2(18.228947, 13.875)
+texture = SubResource("GradientTexture2D_fu7sn")
+
+[node name="Label" type="Label" parent="." unique_id=746616950]
+offset_left = 507.0
+offset_top = 144.0
+offset_right = 621.0
+offset_bottom = 176.0
+scale = Vector2(4.56, 4.56)
+theme_override_font_sizes/font_size = 16
+text = "Top Down demo"
+label_settings = SubResource("LabelSettings_jix8l")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button_manager" type="Control" parent="." unique_id=29064852]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="Button_manager" unique_id=1881931307]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 628.0
+offset_top = 236.0
+offset_right = 836.0
+offset_bottom = 327.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 43
+text = "Start"
+flat = true
+
+[node name="Options" type="Button" parent="Button_manager" unique_id=1608867498]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 628.0
+offset_top = 340.0
+offset_right = 836.0
+offset_bottom = 404.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 43
+text = "Options"
+flat = true
+
+[node name="Quit" type="Button" parent="Button_manager" unique_id=1142000679]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 628.0
+offset_top = 420.0
+offset_right = 836.0
+offset_bottom = 511.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 43
+text = "Exit"
+flat = true
+
+[connection signal="pressed" from="Button_manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button_manager/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Button_manager/Quit" to="." method="_on_quit_pressed"]
