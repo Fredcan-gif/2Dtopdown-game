@@ -16,7 +16,7 @@ func toggle_pause():
 	if new_pause_state:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 func _on_resume_pressed():
 	toggle_pause()

@@ -36,25 +36,46 @@ script = ExtResource("1_7vrkn")
 stream = ExtResource("2_jix8l")
 autoplay = true
 
-[node name="Flickering_light" parent="." unique_id=1090339160 instance=ExtResource("2_7vrkn")]
-position = Vector2(625, 310)
+[node name="CenterContainer" type="Container" parent="." unique_id=963811164]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Flickering_light" parent="CenterContainer" unique_id=1090339160 instance=ExtResource("2_7vrkn")]
+position = Vector2(657.00006, 353.0001)
 scale = Vector2(22.010513, 22.010513)
 
-[node name="Menu" type="Sprite2D" parent="." unique_id=1082475072]
-position = Vector2(667, 328.00003)
+[node name="Menu" type="Sprite2D" parent="CenterContainer" unique_id=1082475072]
+position = Vector2(665, 318.00003)
 scale = Vector2(1.5272926, 1.5272926)
 texture = ExtResource("3_glbon")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1071314777]
-position = Vector2(651, 381.00003)
+[node name="Background" type="Sprite2D" parent="CenterContainer" unique_id=1071314777]
+position = Vector2(649, 371.00003)
 scale = Vector2(22.511745, 15.357733)
 texture = SubResource("GradientTexture2D_glbon")
 
 [node name="Button_manager" type="Control" parent="." unique_id=29064852]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1287.0
-offset_bottom = 729.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 1289.0
+offset_bottom = 739.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Title" type="Label" parent="Button_manager" unique_id=746616950]
 layout_mode = 1

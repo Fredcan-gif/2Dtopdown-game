@@ -6257,6 +6257,7 @@ scale = Vector2(6.703, 6.703)
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1691452849]
 process_mode = 3
 layer = 30
+visible = false
 script = ExtResource("51_ujtbn")
 
 [node name="Panel" type="Panel" parent="PauseMenu" unique_id=989118047]
@@ -6347,19 +6348,19 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_f3s2p")
 text = "Quit"
 
 [node name="ChalkArrowProjectiles1" type="Sprite2D" parent="PauseMenu" unique_id=501785655]
-position = Vector2(544, 506)
+position = Vector2(572.19135, 506)
 rotation = 0.092139296
 scale = Vector2(0.7734375, 0.7734375)
 texture = ExtResource("53_icxqp")
 
 [node name="GalleryUndiscovered" type="Sprite2D" parent="PauseMenu" unique_id=301455069]
-position = Vector2(739, 423.99997)
+position = Vector2(770, 423.99997)
 rotation = 0.14683062
 scale = Vector2(0.3509029, 0.3509029)
 texture = ExtResource("54_duejb")
 
 [node name="UiLockIcon" type="Sprite2D" parent="PauseMenu" unique_id=1965017780]
-position = Vector2(532, 285)
+position = Vector2(560.19135, 285)
 rotation = -0.07730755
 scale = Vector2(0.33592916, 0.33592916)
 texture = ExtResource("57_hwl27")

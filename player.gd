@@ -32,6 +32,7 @@ var is_left_foot = true
 @onready var step_middle = $StepMiddle
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN # Or MOUSE_MODE_CAPTURED
 	health = max_health
 	current_ammo = max_ammo
 	update_ammo_ui()
@@ -206,8 +207,10 @@ func kill():
 	$Graphics/Dead.show()
 	$Graphics/BloodSplatter.show()
 	$Graphics/Alive.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	$CanvasLayer/DeathScreen.show()
 	z_index = -1
+
 
 func restart():
 	get_tree().reload_current_scene()
