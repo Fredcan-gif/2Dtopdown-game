@@ -6,50 +6,40 @@
 script = ExtResource("1_yp5lu")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=654156581]
-position = Vector2(341, 73)
+position = Vector2(1043.928, 236)
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=456516492]
-position = Vector2(138, 448)
+position = Vector2(-410.07202, 1149)
 
 [node name="Marker2D3" type="Marker2D" parent="." unique_id=1920394603]
-position = Vector2(356, 589)
-
-[node name="Marker2D4" type="Marker2D" parent="." unique_id=1594576987]
-position = Vector2(1067, 94)
+position = Vector2(913.928, 1361)
 
 [node name="Marker2D5" type="Marker2D" parent="." unique_id=297635857]
-position = Vector2(822, 591)
+position = Vector2(662.928, 452)
 
 [node name="Marker2D6" type="Marker2D" parent="." unique_id=765464164]
-position = Vector2(1054, 516)
+position = Vector2(259.92798, 1396)
 
 [node name="Marker2D7" type="Marker2D" parent="." unique_id=134453986]
-position = Vector2(1403, 369)
-
-[node name="Marker2D8" type="Marker2D" parent="." unique_id=1266449860]
-position = Vector2(1047, 808)
+position = Vector2(1495.928, -268)
 
 [node name="Marker2D9" type="Marker2D" parent="." unique_id=2140619536]
-position = Vector2(-125, 186)
-
-[node name="Marker2D10" type="Marker2D" parent="." unique_id=423954588]
-position = Vector2(118, -57)
-rotation = -0.9596549
+position = Vector2(-285.07202, 147)
 
 [node name="Marker2D11" type="Marker2D" parent="." unique_id=826342453]
-position = Vector2(633, -129)
+position = Vector2(-421.0719, -170)
 rotation = -0.9596549
 
 [node name="Marker2D12" type="Marker2D" parent="." unique_id=114055415]
-position = Vector2(1240, -48)
+position = Vector2(557.928, -233)
 rotation = -0.9596549
 
 [node name="Marker2D13" type="Marker2D" parent="." unique_id=1932338783]
-position = Vector2(-171, 580.00006)
+position = Vector2(472.92798, 856)
 rotation = -0.9596549
 
 [node name="Marker2D14" type="Marker2D" parent="." unique_id=910331712]
-position = Vector2(308, 831.00006)
+position = Vector2(457.92798, 1096)
 rotation = -0.9596549
 
 [node name="Timer" type="Timer" parent="." unique_id=625368722]

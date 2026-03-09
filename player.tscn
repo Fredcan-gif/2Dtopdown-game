@@ -5,15 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://hqgnx81kie8t" path="res://assets/dead_body.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://k7fvmj2cs3p8" path="res://assets/blood_splatter.png" id="3_sweqy"]
 [ext_resource type="AudioStream" uid="uid://c4jskdjnab7q5" path="res://assets/death_noise1.wav" id="4_sweqy"]
-[ext_resource type="AudioStream" uid="uid://cyeek1frypbae" path="res://assets/shotgun_shot1.wav" id="5_2hs0m"]
+[ext_resource type="AudioStream" uid="uid://ciuxrcw8hydi7" path="res://assets/SFX/gun_fire.mp3" id="6_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://e4kbds6ac65n" path="res://assets/muzzle_flash.png" id="6_2hs0m"]
+[ext_resource type="AudioStream" uid="uid://8x7xt82we8hj" path="res://assets/SFX/gun_reload.mp3" id="7_b26j0"]
+[ext_resource type="AudioStream" uid="uid://coedogn4ve5lu" path="res://assets/SFX/gun_pump.mp3" id="8_n7ghd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2hs0m"]
 radius = 39.012817
 
+[sub_resource type="LabelSettings" id="LabelSettings_1jxqw"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=1631144809 groups=["player"]]
-collision_layer = 2
-collision_mask = 3
+collision_mask = 14
 script = ExtResource("1_1jxqw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=731510359]
@@ -44,11 +49,17 @@ rotation = -0.48129696
 texture = ExtResource("3_sweqy")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1310723844]
-position = Vector2(2, -42)
-scale = Vector2(8, 8)
+position = Vector2(2, -67)
+scale = Vector2(4.3600006, 8)
 target_position = Vector2(0, -200)
-collision_mask = 3
+collision_mask = 6
 hit_from_inside = true
+
+[node name="Tracer" type="Line2D" parent="." unique_id=1840996505]
+visible = false
+z_index = 1
+width = 2.0
+default_color = Color(1, 1, 0.5294118, 1)
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1671427974]
 rotation = 0.00034716786
@@ -57,8 +68,14 @@ bus = &"sfx"
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=1016873389]
 rotation = 0.00034716786
-stream = ExtResource("5_2hs0m")
+stream = ExtResource("6_1jxqw")
 bus = &"sfx"
+
+[node name="ReloadSound" type="AudioStreamPlayer2D" parent="." unique_id=1234172103]
+stream = ExtResource("7_b26j0")
+
+[node name="PumpSound" type="AudioStreamPlayer2D" parent="." unique_id=1651671446]
+stream = ExtResource("8_n7ghd")
 
 [node name="MuzzleFlash" type="Sprite2D" parent="." unique_id=1493305117]
 visible = false
@@ -133,6 +150,16 @@ grow_vertical = 0
 text = "Restart"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1160553889]
+position_smoothing_enabled = true
+
+[node name="AmmoLabel" type="Label" parent="." unique_id=761069682]
+top_level = true
+z_index = 10
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_1jxqw")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="MuzzleFlash/Timer" to="MuzzleFlash" method="hide"]
 [connection signal="button_up" from="CanvasLayer/DeathScreen/Panel/Button" to="." method="restart"]

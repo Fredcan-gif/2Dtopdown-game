@@ -7,7 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://cmp77n8anoqda" path="res://assets/monster_die.wav" id="5_i82o5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jw3ev"]
-radius = 31.06445
+radius = 28.21788
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5rsa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nqyo"]
 bg_color = Color(0.22745098, 0.22745098, 0.22745098, 1)
@@ -16,8 +18,8 @@ bg_color = Color(0.22745098, 0.22745098, 0.22745098, 1)
 bg_color = Color(0.34901962, 0.77254903, 0.23921569, 1)
 
 [node name="Zombie" type="CharacterBody2D" unique_id=657701144]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_7nqyo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=891738205]
@@ -49,6 +51,9 @@ rotation = -0.481297
 scale = Vector2(1.0477393, 1.0477393)
 texture = ExtResource("4_ogcpr")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Graphics" unique_id=1059866573]
+sprite_frames = SubResource("SpriteFrames_x5rsa")
+
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=140885339]
 target_position = Vector2(0, -70)
 collision_mask = 3
@@ -64,3 +69,9 @@ offset_bottom = 8.0
 theme_override_styles/background = SubResource("StyleBoxFlat_7nqyo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_lnshm")
 show_percentage = false
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1710940314]
+path_desired_distance = 30.0
+avoidance_enabled = true
+radius = 20.0
+neighbor_distance = 150.0
