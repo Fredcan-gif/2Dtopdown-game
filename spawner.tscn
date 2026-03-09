@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cpxn47cas4c8p"]
 
 [ext_resource type="Script" uid="uid://dqsukrq33ss4p" path="res://spawner.gd" id="1_yp5lu"]
+[ext_resource type="PackedScene" uid="uid://m7ow1afph3ih" path="res://floor.tscn" id="2_ttk4a"]
+[ext_resource type="AudioStream" uid="uid://bcfp67r4sbbpb" path="res://assets/SFX/zombie_wave.mp3" id="3_mcln3"]
 
 [node name="EnemySpawner" type="Node2D" unique_id=736624560]
 script = ExtResource("1_yp5lu")
@@ -9,7 +11,7 @@ script = ExtResource("1_yp5lu")
 position = Vector2(1043.928, 236)
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=456516492]
-position = Vector2(-410.07202, 1149)
+position = Vector2(-482, 1264)
 
 [node name="Marker2D3" type="Marker2D" parent="." unique_id=1920394603]
 position = Vector2(913.928, 1361)
@@ -17,25 +19,18 @@ position = Vector2(913.928, 1361)
 [node name="Marker2D5" type="Marker2D" parent="." unique_id=297635857]
 position = Vector2(662.928, 452)
 
-[node name="Marker2D6" type="Marker2D" parent="." unique_id=765464164]
-position = Vector2(259.92798, 1396)
-
 [node name="Marker2D7" type="Marker2D" parent="." unique_id=134453986]
 position = Vector2(1495.928, -268)
 
 [node name="Marker2D9" type="Marker2D" parent="." unique_id=2140619536]
-position = Vector2(-285.07202, 147)
+position = Vector2(-52, -69)
 
 [node name="Marker2D11" type="Marker2D" parent="." unique_id=826342453]
-position = Vector2(-421.0719, -170)
+position = Vector2(-419, -266)
 rotation = -0.9596549
 
 [node name="Marker2D12" type="Marker2D" parent="." unique_id=114055415]
-position = Vector2(557.928, -233)
-rotation = -0.9596549
-
-[node name="Marker2D13" type="Marker2D" parent="." unique_id=1932338783]
-position = Vector2(472.92798, 856)
+position = Vector2(720, -260)
 rotation = -0.9596549
 
 [node name="Marker2D14" type="Marker2D" parent="." unique_id=910331712]
@@ -44,5 +39,11 @@ rotation = -0.9596549
 
 [node name="Timer" type="Timer" parent="." unique_id=625368722]
 autostart = true
+
+[node name="Floor" parent="." unique_id=374003612 instance=ExtResource("2_ttk4a")]
+visible = false
+
+[node name="WaveIncomingSound" type="AudioStreamPlayer2D" parent="." unique_id=1053913650]
+stream = ExtResource("3_mcln3")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

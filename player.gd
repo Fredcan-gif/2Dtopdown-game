@@ -9,7 +9,9 @@ extends CharacterBody2D
 @export var move_speed = 200
 @export var max_health = 100
 @export var gun_damage = 50
-@export var fire_rate = 0.8 # The "pump" delay
+@export var fire_rate = 0.8
+@export var regen_delay = 5.0 # seconds before HP regens
+@export var regen_speed = 3.0 # HP given during regen
 
 # --- Ammo Variables ---
 @export var max_ammo = 8
@@ -19,8 +21,15 @@ var is_reloading = false
 var can_fire = true
 
 var health = 100
+var time_since_last_hit = 0.0
 var dead = false
 var can_take_damage = true
+
+@onready var footstep_timer = $FootstepTimer
+var is_left_foot = true
+@onready var step_left = $StepLeft
+@onready var step_right = $StepRight
+@onready var step_middle = $StepMiddle
 
 func _ready():
 	health = max_health
@@ -31,7 +40,7 @@ func _ready():
 		health_bar_ui.max_value = max_health
 		health_bar_ui.value = health
 
-func _process(_delta):
+func _process(delta): # Changed _delta to delta here
 	if Input.is_action_just_pressed("restart"):
 		restart()
 	
@@ -44,6 +53,15 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("reload") and current_ammo < max_ammo:
 		reload()
+		
+	# --- Health Regen Logic ---
+	if health < max_health:
+		time_since_last_hit += delta # Now 'delta' is recognized
+		if time_since_last_hit >= regen_delay:
+			# Increment health, but don't exceed max
+			health = min(health + (regen_speed * delta), max_health)
+			if health_bar_ui:
+				health_bar_ui.value = health
 
 func _physics_process(_delta):
 	if dead: return
@@ -55,21 +73,27 @@ func _physics_process(_delta):
 	# We get the minimum size to ensure we know how wide the text currently is
 	var text_width = ammo_label.get_combined_minimum_size().x
 	ammo_label.global_position = global_position + Vector2(-text_width / 2, -50)
+	
+	if velocity.length() > 0 and footstep_timer.is_stopped():
+		play_footstep() # Calls the Left/Right logic from Step 1
+		footstep_timer.start(0.4)
 
 func shoot():
-	# Check can_fire to prevent shooting during the pump animation
 	if is_reloading or dead or !can_fire: return
 	if current_ammo <= 0:
 		reload()
 		return
 
-	can_fire = false # Lock firing
+	can_fire = false 
 	current_ammo -= 1
 	update_ammo_ui()
 	apply_shake(15.0)
 	
+	# --- MUZZLE LIGHT LOGIC ---
 	$MuzzleFlash.show()
-	$MuzzleFlash/Timer.start()
+	$MuzzleFlash/PointLight2D.enabled = true # Turn on the light
+	
+	$MuzzleFlash/Timer.start() # This timer should handle hiding the flash
 	$ShootSound.play()
 
 	# --- SHOTGUN SPREAD LOGIC ---
@@ -158,7 +182,10 @@ func apply_shake(strength: float):
 
 func take_damage(amount):
 	if dead or !can_take_damage: return
+	
 	health -= amount
+	time_since_last_hit = 0.0 # Reset the regen timer!
+	
 	if health_bar_ui:
 		health_bar_ui.value = health
 	if health <= 0:
@@ -175,7 +202,7 @@ func kill():
 	if dead: return
 	dead = true
 	ammo_label.hide()
-	$DeathSound.play()
+	$DeathSound.play(1.26)
 	$Graphics/Dead.show()
 	$Graphics/BloodSplatter.show()
 	$Graphics/Alive.hide()
@@ -184,3 +211,18 @@ func kill():
 
 func restart():
 	get_tree().reload_current_scene()
+
+func play_footstep():
+	# Generate a random number: 0, 1, or 2
+	var random_foot = randi() % 3
+	
+	if random_foot == 0:
+		step_left.pitch_scale = randf_range(0.9, 1.1)
+		step_left.play()
+	elif random_foot == 1:
+		step_right.pitch_scale = randf_range(0.9, 1.1)
+		step_right.play()
+	else:
+		# This handles the '2' case
+		step_middle.pitch_scale = randf_range(0.9, 1.1)
+		step_middle.play()

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b67qer7nop1x2"]
+
+[ext_resource type="Script" uid="uid://b7knxjmixwe6b" path="res://point_light_2d.gd" id="1_73wx7"]
+
+[sub_resource type="Gradient" id="Gradient_jyey3"]
+offsets = PackedFloat32Array(0, 0.49759614, 1)
+colors = PackedColorArray(0.50980395, 0.54901963, 0.3529412, 1, 0.50980395, 0.54901963, 0.3529412, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o6h13"]
+gradient = SubResource("Gradient_jyey3")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8802083, 0.1857639)
+
+[node name="Flickering_light" type="Node2D" unique_id=1090339160]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=436035208]
+texture_repeat = 1
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_o6h13")
+script = ExtResource("1_73wx7")

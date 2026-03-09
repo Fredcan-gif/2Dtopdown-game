@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dw0mqt88kt56f"
+path="res://.godot/imported/zombie_massacre_vocal_impact_pain_hurt_21.wav-36a5521d95e3d0426207f6a533f21c59.sample"
+
+[deps]
+
+source_file="res://assets/SFX/24bit/Vocal/Impact Pain Hurt/zombie_massacre_vocal_impact_pain_hurt_21.wav"
+dest_files=["res://.godot/imported/zombie_massacre_vocal_impact_pain_hurt_21.wav-36a5521d95e3d0426207f6a533f21c59.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

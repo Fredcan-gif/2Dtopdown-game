@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://rqctr86p6jhg"]
+
+[ext_resource type="Script" uid="uid://bqqq40eoguh4t" path="res://boss_zombie.gd" id="1_7wgql"]
+[ext_resource type="Texture2D" uid="uid://01ee38niowth" path="res://assets/boss_zombie.png" id="1_745d0"]
+[ext_resource type="Texture2D" uid="uid://k7fvmj2cs3p8" path="res://assets/blood_splatter.png" id="3_q3qb6"]
+[ext_resource type="Texture2D" uid="uid://byiio6nk8bnvu" path="res://assets/boss_dead.png" id="3_q84mq"]
+[ext_resource type="AudioStream" uid="uid://cmp77n8anoqda" path="res://assets/monster_die.wav" id="4_ubmnk"]
+[ext_resource type="AudioStream" uid="uid://bvkbmck3e6nwf" path="res://assets/SFX/Tiles/Steps_tiles-022.ogg" id="6_q84mq"]
+[ext_resource type="AudioStream" uid="uid://briiac2hun0wq" path="res://assets/SFX/Tiles/Steps_tiles-021.ogg" id="7_flb1d"]
+[ext_resource type="AudioStream" uid="uid://dbew23yce4cud" path="res://assets/SFX/Tiles/Steps_tiles-020.ogg" id="8_w0ssu"]
+[ext_resource type="AudioStream" uid="uid://cxvhc08ce7yh6" path="res://assets/SFX/24bit/Vocal/Attack/zombie_massacre_vocal_attack_short_01.wav" id="9_h15yf"]
+[ext_resource type="AudioStream" uid="uid://cm7v0mrm4nwkc" path="res://assets/SFX/24bit/Head Smash/No Whooshes/zombie_massacre_head_smash_05.wav" id="10_1qryu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kapde"]
+radius = 21.227
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ei5i6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q84mq"]
+bg_color = Color(0.22745098, 0.22745098, 0.22745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flb1d"]
+bg_color = Color(0.34901962, 0.77254903, 0.23921569, 1)
+
+[node name="boss_zombie" type="CharacterBody2D" unique_id=25151950]
+scale = Vector2(1.2, 1.2)
+collision_layer = 5
+collision_mask = 15
+script = ExtResource("1_7wgql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=860854410]
+position = Vector2(0, -10.000001)
+scale = Vector2(1.5315721, 1.5315721)
+shape = SubResource("CircleShape2D_kapde")
+
+[node name="Graphics" type="Node2D" parent="." unique_id=375305953]
+
+[node name="Alive" type="Sprite2D" parent="Graphics" unique_id=89928709]
+texture_filter = 1
+position = Vector2(6, -23)
+texture = ExtResource("1_745d0")
+
+[node name="Dead" type="Sprite2D" parent="Graphics" unique_id=1015453122]
+visible = false
+z_index = -1
+texture_filter = 1
+texture = ExtResource("3_q84mq")
+
+[node name="BloodSplatter" type="Sprite2D" parent="Graphics" unique_id=893711691]
+visible = false
+self_modulate = Color(0.84313726, 0, 0, 1)
+show_behind_parent = true
+z_index = -1
+texture_filter = 1
+position = Vector2(15, 9)
+rotation = -0.481297
+scale = Vector2(1.0477393, 1.0477393)
+texture = ExtResource("3_q3qb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Graphics" unique_id=729962122]
+sprite_frames = SubResource("SpriteFrames_ei5i6")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1390823675]
+target_position = Vector2(0, -75)
+collision_mask = 3
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1528440059]
+stream = ExtResource("4_ubmnk")
+bus = &"sfx"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1175046430]
+top_level = true
+z_index = 3
+offset_right = 64.59259
+offset_bottom = 8.0
+theme_override_styles/background = SubResource("StyleBoxFlat_q84mq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_flb1d")
+show_percentage = false
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=816616566]
+path_desired_distance = 40.0
+avoidance_enabled = true
+radius = 26.0
+neighbor_distance = 150.0
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=865469755]
+one_shot = true
+
+[node name="StepLeft" type="AudioStreamPlayer2D" parent="." unique_id=165110677]
+stream = ExtResource("6_q84mq")
+volume_db = -25.0
+
+[node name="StepRight" type="AudioStreamPlayer2D" parent="." unique_id=89122348]
+stream = ExtResource("7_flb1d")
+volume_db = -25.0
+
+[node name="StepMiddle" type="AudioStreamPlayer2D" parent="." unique_id=576758972]
+stream = ExtResource("8_w0ssu")
+volume_db = -25.0
+
+[node name="MoanSound" type="AudioStreamPlayer2D" parent="." unique_id=1085137932]
+volume_db = -15.0
+max_distance = 1000.0
+attenuation = 2.0
+
+[node name="FootstepTimer" type="Timer" parent="." unique_id=2065651131]
+wait_time = 0.7
+one_shot = true
+
+[node name="MoanTimer" type="Timer" parent="." unique_id=603525893]
+one_shot = true
+autostart = true
+
+[node name="AttackGrowl" type="AudioStreamPlayer2D" parent="." unique_id=984129629]
+stream = ExtResource("9_h15yf")
+volume_db = -20.0
+
+[node name="SlashSound" type="AudioStreamPlayer2D" parent="." unique_id=1339910579]
+stream = ExtResource("10_1qryu")
+volume_db = -15.0
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="MoanTimer" to="." method="_on_moan_timer_timeout"]
